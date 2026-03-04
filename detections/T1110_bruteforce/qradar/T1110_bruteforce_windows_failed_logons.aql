@@ -1,0 +1,15 @@
+SELECT
+  DATEFORMAT(starttime, 'yyyy-MM-dd HH:mm') AS minute_bucket,
+  username AS target_user,
+  sourceip AS src_ip,
+  COUNT(*) AS fail_count,
+  UNIQUECOUNT(destinationip) AS unique_dsts
+FROM events
+WHERE
+  QIDNAME(qid) ILIKE '%4625%' OR (eventid = 4625)
+  AND starttime > (CURRENT_TIMESTAMP - 5 MINUTES)
+  AND username IS NOT NULL
+  AND sourceip IS NOT NULL
+GROUP BY minute_bucket, target_user, src_ip
+HAVING fail_count >= 10
+ORDER BY fail_count DESC

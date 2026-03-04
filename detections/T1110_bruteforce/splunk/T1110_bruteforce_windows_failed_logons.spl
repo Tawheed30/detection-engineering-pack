@@ -1,0 +1,8 @@
+index=wineventlog sourcetype="WinEventLog:Security" EventCode=4625
+| eval target_user=coalesce(TargetUserName, Account_Name, user)
+| eval src_ip=coalesce(IpAddress, src, Source_Network_Address)
+| where isnotnull(target_user) AND isnotnull(src_ip) AND src_ip!="-" AND src_ip!="::1" AND src_ip!="127.0.0.1"
+| bin _time span=5m
+| stats count as fail_count values(LogonType) as logon_types values(Status) as statuses values(SubStatus) as substatuses values(host) as hosts by _time target_user src_ip
+| where fail_count>=10
+| eval severity=case(fail_count>=30,"high", fail_count>=15,"medium", true(),"low")

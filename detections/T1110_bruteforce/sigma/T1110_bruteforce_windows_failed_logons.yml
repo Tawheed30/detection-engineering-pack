@@ -1,0 +1,27 @@
+title: Windows Brute Force - Excessive Failed Logons (4625)
+id: 7f4b3e64-1c2a-4e4f-8ad8-0c1c7b2b7c11
+status: experimental
+description: Detects possible brute force activity based on excessive Windows Security failed logons (EventID 4625) aggregated by user and source IP.
+references:
+  - https://attack.mitre.org/techniques/T1110/
+author: Mohammed Tawheed
+date: 2026/03/04
+tags:
+  - attack.t1110
+  - attack.credential_access
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4625
+  group_by:
+    - TargetUserName
+    - IpAddress
+  timeframe: 5m
+  condition: selection | count() >= 10
+falsepositives:
+  - Password typos by users
+  - Misconfigured services using stale credentials
+  - Vulnerability scanners / pentest activity
+level: medium

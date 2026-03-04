@@ -1,0 +1,8 @@
+{"@timestamp":"2026-03-04T06:10:00Z","EventID":4625,"Channel":"Security","Computer":"WIN10-01","TargetUserName":"john","IpAddress":"192.168.1.50","LogonType":3,"Status":"0xC000006D","SubStatus":"0xC000006A"}
+{"@timestamp":"2026-03-04T07:05:20Z","EventID":4625,"Channel":"Security","Computer":"WIN10-01","TargetUserName":"john","IpAddress":"192.168.1.50","LogonType":3,"Status":"0xC000006D","SubStatus":"0xC000006A"}
+{"@timestamp":"2026-03-04T08:40:10Z","EventID":4625,"Channel":"Security","Computer":"SRV-AD-01","TargetUserName":"svc_backup","IpAddress":"192.168.1.20","LogonType":3,"Status":"0xC000006D","SubStatus":"0xC000006A"}
+{"@timestamp":"2026-03-04T08:41:55Z","EventID":4625,"Channel":"Security","Computer":"SRV-AD-01","TargetUserName":"svc_backup","IpAddress":"192.168.1.20","LogonType":3,"Status":"0xC000006D","SubStatus":"0xC000006A"}
+{"@timestamp":"2026-03-04T09:10:05Z","EventID":4625,"Channel":"Security","Computer":"SRV-FILE-01","TargetUserName":"mary","IpAddress":"10.0.0.45","LogonType":3,"Status":"0xC000006D","SubStatus":"0xC000006A"}
+{"@timestamp":"2026-03-04T09:12:15Z","EventID":4625,"Channel":"Security","Computer":"SRV-FILE-01","TargetUserName":"mary","IpAddress":"10.0.0.45","LogonType":3,"Status":"0xC000006D","SubStatus":"0xC000006A"}
+{"@timestamp":"2026-03-04T09:45:00Z","EventID":4625,"Channel":"Security","Computer":"WIN11-02","TargetUserName":"it_support","IpAddress":"192.168.1.77","LogonType":10,"Status":"0xC000006D","SubStatus":"0xC000006A"}
+{"@timestamp":"2026-03-04T09:47:40Z","EventID":4625,"Channel":"Security","Computer":"WIN11-02","TargetUserName":"it_support","IpAddress":"192.168.1.77","LogonType":10,"Status":"0xC000006D","SubStatus":"0xC000006A"}

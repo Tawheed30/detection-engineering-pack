@@ -1,0 +1,15 @@
+detection_id: T1110_bruteforce_windows_failed_logons
+timeframe_minutes: 5
+threshold: 10
+group_by:
+  - TargetUserName
+  - IpAddress
+
+cases:
+  - name: benign_should_not_alert
+    log_file: data/T1110_bruteforce/benign/windows_security_failed_logons.jsonl
+    expect_alert: false
+
+  - name: malicious_should_alert
+    log_file: data/T1110_bruteforce/malicious/windows_security_failed_logons.jsonl
+    expect_alert: true
