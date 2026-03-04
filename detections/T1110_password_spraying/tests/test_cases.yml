@@ -1,0 +1,20 @@
+detection_id: T1110_password_spraying_windows_4625
+rule_type: value_count
+
+# Password spraying = 1 src_ip hitting many distinct usernames in a short window
+timeframe_minutes: 10
+threshold: 6
+
+group_by:
+  - IpAddress
+
+value_field: TargetUserName
+
+cases:
+  - name: benign_should_not_alert
+    log_file: data/T1110_password_spraying/benign/windows_security_failed_logons.jsonl
+    expect_alert: false
+
+  - name: malicious_should_alert
+    log_file: data/T1110_password_spraying/malicious/windows_security_failed_logons.jsonl
+    expect_alert: true
